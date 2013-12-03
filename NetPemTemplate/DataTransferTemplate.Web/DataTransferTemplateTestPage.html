@@ -57,18 +57,30 @@
         }
     </script>
     <script type="text/javascript">
-        function globalJSMethod(strParamGGS) {
-            var d = new Date();
-            alert(strParamGGS + " \n JavaScript milliseconds: " +
-                d.getMilliseconds());
+        function ProcessStreamingResults(buffer, frame, bandwidth) {
+            alert(
+            "Buffer:" + buffer + "\n" +
+            "Frame:" + frame + "\n" +
+            "Bandwidth:" + bandwidth + "\n"
+            );
+        }
+        function ProcessDownloadResults(rate) {
+            alert("Rate:" + rate + "\n");
+        }
+        function ProcessUploadResults(rate) {
+            alert("Rate:" + rate + "\n");
         }
     </script>
 </head>
 <body>
     <form id="form1" runat="server" style="height:100%">
         <div id="silverlightControlHost">
-            <input type="button" id="btnCallJSMethod"
-                   value="Click to make a managed call to a JavaScript method" />
+            <!--<input type="button" id="SendStreamingResults"
+                   value="Send streaming results to javascript" />
+            <input type="button" id="SendDownloadResults"
+                   value="Send download results to javascript" />
+            <input type="button" id="SendUploadResults"
+                   value="Send upload results to javascript" />-->
             <object data="data:application/x-silverlight-2," type="application/x-silverlight-2" width="100%" height="100%">
                 <param name="source" value="ClientBin/DataTransferTemplate.xap" />
                 <param name="onError" value="onSilverlightError" />

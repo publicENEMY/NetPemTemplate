@@ -29,22 +29,22 @@ namespace DataTransferTemplate
 		{
 			this.RootVisual = new MainPage();
 
-			// HtmlDocument requires using System.Windows.Browser.
-			HtmlDocument doc = HtmlPage.Document;
+			//// HtmlDocument requires using System.Windows.Browser.
+			//HtmlDocument doc = HtmlPage.Document;
 
-			// Hook up the simple JavaScript method HTML button.
-			doc.GetElementById("btnCallJSMethod").AttachEvent("click",
-				new EventHandler(this.CallGlobalJSMethod));
+			//// Hook up the simple JavaScript method HTML button.
+			//doc.GetElementById("btnCallJSMethod").AttachEvent("click",
+			//	new EventHandler(this.CallGlobalJSMethod));
 
-			// Hook up the JavaScript method.
-			doc.GetElementById("SendStreamingResults").AttachEvent("click",
-				new EventHandler(SendStreamingResultsToJs));
-			// Hook up the JavaScript method.
-			doc.GetElementById("SendDownloadResults").AttachEvent("click",
-				new EventHandler(SendDownloadResultsToJs));
-			// Hook up the JavaScript method.
-			doc.GetElementById("SendUploadResults").AttachEvent("click",
-				new EventHandler(SendUploadResultsToJs));
+			//// Hook up the JavaScript method.
+			//doc.GetElementById("SendStreamingResults").AttachEvent("click",
+			//	new EventHandler(SendStreamingResultsToJs));
+			//// Hook up the JavaScript method.
+			//doc.GetElementById("SendDownloadResults").AttachEvent("click",
+			//	new EventHandler(SendDownloadResultsToJs));
+			//// Hook up the JavaScript method.
+			//doc.GetElementById("SendUploadResults").AttachEvent("click",
+			//	new EventHandler(SendUploadResultsToJs));
 		}
 
 		private void SendStreamingResultsToJs(object sender, EventArgs e)

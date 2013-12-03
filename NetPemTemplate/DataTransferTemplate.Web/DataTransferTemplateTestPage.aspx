@@ -56,13 +56,6 @@
         }
     </script>
     <script type="text/javascript">
-        function globalJSMethod(strParamGGS) {
-            var d = new Date();
-            alert(strParamGGS + " \n JavaScript milliseconds: " +
-            d.getMilliseconds());
-        }
-    </script>
-    <script type="text/javascript">
         function ProcessStreamingResults(buffer, frame, bandwidth) {
             alert(
             "Buffer:" + buffer + "\n" +
@@ -81,14 +74,12 @@
 <body>
     <form id="form1" runat="server" style="height:100%">
     <div id="silverlightControlHost">
-        <input type="button" id="btnCallJSMethod"
-               value="Click to make a managed call to a JavaScript method" />
-        <input type="button" id="SendStreamingResults"
+<%--        <input type="button" id="SendStreamingResults"
                value="Send streaming results to javascript" />
         <input type="button" id="SendDownloadResults"
                value="Send download results to javascript" />
         <input type="button" id="SendUploadResults"
-               value="Send upload results to javascript" />
+               value="Send upload results to javascript" />--%>
         <object data="data:application/x-silverlight-2," type="application/x-silverlight-2" width="100%" height="100%">
 		  <param name="source" value="ClientBin/DataTransferTemplate.xap"/>
 		  <param name="onError" value="onSilverlightError" />
@@ -102,28 +93,3 @@
     </form>
 </body>
 </html>
-
-
-<%--<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <title>Silverlight Project Test Page </title>
-    <script type="text/javascript">
-        function globalJSMethod(strParamGGS) {
-            var d = new Date();
-            alert(strParamGGS + " \n JavaScript milliseconds: " +
-            d.getMilliseconds());
-        }
-    </script>
-</head>
-<body>
-    <div id="silverlightControlHost">
-        <input type="button" id="btnCallJSMethod"
-               value="Click to make a managed call to a JavaScript method" />
-        <object data="data:application/x-silverlight-2," type="application/x-silverlight-2">
-            <param name="source" value="ClientBin/DataTransferTemplate.xap" />
-        </object>
-        <iframe id="_sl_historyFrame"
-                style="visibility:hidden;height:0px;width:0px;border:0px"></iframe>
-    </div>
-</body>
-</html>--%>
