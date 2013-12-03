@@ -32,42 +32,78 @@ namespace DataTransferTemplate
 			// HtmlDocument requires using System.Windows.Browser.
 			HtmlDocument doc = HtmlPage.Document;
 
-				// Hook up the simple JavaScript method HTML button.
-				doc.GetElementById("btnCallJSMethod").AttachEvent("click", 
-					new EventHandler(this.CallGlobalJSMethod));
+			// Hook up the simple JavaScript method HTML button.
+			doc.GetElementById("btnCallJSMethod").AttachEvent("click",
+				new EventHandler(this.CallGlobalJSMethod));
+
+			// Hook up the JavaScript method.
+			doc.GetElementById("SendStreamingResults").AttachEvent("click",
+				new EventHandler(SendStreamingResultsToJs));
+			// Hook up the JavaScript method.
+			doc.GetElementById("SendDownloadResults").AttachEvent("click",
+				new EventHandler(SendDownloadResultsToJs));
+			// Hook up the JavaScript method.
+			doc.GetElementById("SendUploadResults").AttachEvent("click",
+				new EventHandler(SendUploadResultsToJs));
 		}
+
+		private void SendStreamingResultsToJs(object sender, EventArgs e)
+		{
+			var r = new Random();
+			//rebuffering count
+			int buffer = r.Next(0,10);
+			//frame drops
+			int frame = r.Next(0, 10);
+			//estimate bandwidth
+			double bandwidth = r.Next(0, 10) + r.NextDouble();
+
+			HtmlPage.Window.Invoke("ProcessStreamingResults", buffer, frame, bandwidth);
+		}
+
+		private void SendDownloadResultsToJs(object sender, EventArgs e)
+		{
+			var r = new Random();
+			//estimate bandwidth
+			double rate = r.Next(0, 10) + r.NextDouble();
+
+			HtmlPage.Window.Invoke("ProcessDownloadResults", rate);
+		}
+		
+		private void SendUploadResultsToJs(object sender, EventArgs e)
+		{
+			var r = new Random();
+			//estimate bandwidth
+			double rate = r.Next(0, 10) + r.NextDouble();
+
+			HtmlPage.Window.Invoke("ProcessUploadResults", rate);
+		}
+
+
 
 		// Call a global JavaScript method defined on the HTML page.
 		// Pass result to javascript here
 		// Results
 		// sample_1080p_buffer - int rebuffering count
 		// sample_1080p_frame - int total frame lost
-		// sample_1080p_time - miliseconds? duration
 		// sample_1080p_bandwidth - megabits?
 
 		// sample_720p_buffer
 		// sample_720p_frame
-		// sample_720p_time
 		// sample_720p_bandwidth
 
 		// sample_480p_buffer
 		// sample_480p_frame
-		// sample_480p_time
 		// sample_480p_bandwidth
 
 		// sample_360p_buffer
 		// sample_360p_frame
-		// sample_360p_time
 		// sample_360p_bandwidth
-		
+
 		// upload download are similar
-		// sample_size1_time - miliseconds?
 		// sample_size1_rate - megabits?
 
-		// sample_size2_time
 		// sample_size2_rate
 
-		// sample_size3_time
 		// sample_size3_rate
 
 

@@ -7,6 +7,11 @@
     d:DesignHeight="300" d:DesignWidth="400">
 
     <Grid x:Name="LayoutRoot" Background="White">
+        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" >
+            <Button Content="Start Streaming" Click="SendStreamingResultsToJs"/>
+            <Button Content="Start Download" Click="SendDownloadResultsToJs" />
+            <Button Content="Start Upload" Click="SendUploadResultsToJs" />
+        </StackPanel>
 
     </Grid>
 </UserControl>
